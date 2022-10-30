@@ -32,13 +32,26 @@ public class CowTimer {
         System.out.println("Cow time set to " + this.seconds + " seconds.");
     }
 
-    public void start() throws InterruptedException {
-        
-    }
-
     public void playSound(final String file) {
         String fileName = "_05_cow_timer/" + file;
         Sound sound = new Sound(fileName);
         sound.play();
     }
+    
+    public void start() throws InterruptedException {
+      
+    	
+    	for (int i = seconds; i>=0; i--) {
+    	if (seconds==0) {
+    	playSound("moo.wav");
+    }
+      else {
+    	 System.out.println("Timer: " + seconds);
+    	 seconds = seconds - 1;
+    	 Thread.sleep(1000);
+    }
+    }
+    }
+
+
 }
